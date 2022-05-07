@@ -1,0 +1,20 @@
+ErrorDocument 404 /404.html
+ErrorDocument 500 /404.html
+
+# or map them to one error document:
+# ErrorDocument 404 /error_redirect.html
+# ErrorDocument 500 /error_redirect.html
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ /404.html [L]
+
+RewriteCond %{REQUEST_URI} ^/500/$
+RewriteRule ^(.*)$ /500.html [L]
+
+# or map them to one error document:
+#RewriteCond %{REQUEST_URI} ^/404/$ [OR]
+#RewriteCond %{REQUEST_URI} ^/500/$
+#RewriteRule ^(.*)$ /error_redirect.html [L]
